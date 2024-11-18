@@ -1,6 +1,6 @@
 package com.iessanalberto.JTT.menus;
 
-import java.nio.file.Path;
+
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -9,12 +9,18 @@ public class MenuPrincipal {
         public void mostrarMenuPrincipal(){
         String opcion;
         do {
-            System.out.println("Elige una opción:"+"\n"+
-                "1. Leer XML con JAXB-Insituto"+"\n"+
-                "2. Leer XML con JAXB-Espacios"+"\n"+
-                "3. Escribir XML con JAXB"+"\n"+
+            System.out.println("-------------------------------------------");
+            System.out.println("MENU PRINCIPAL - Gestión empleados y departamentos");
+            System.out.println("-------------------------------------------");
+            System.out.println("Elige una opción:\n"+"\n"+
+                "1. Pedir Empleados\n"+
+                "2. Leer Departamentos\n"+
+                "3. Asignar empleado en departamento\n"+
+                "4. Leer JSON\n"+
+                "4. Mostrar información de la empresa empresa\n"+
                 "0. Salir."
             );
+            System.out.println("-------------------------------------------");
             opcion = this.pideOpcion();
             this.procesarOpcion(opcion);
         } while (!salir);
@@ -38,9 +44,6 @@ public class MenuPrincipal {
         return this.sc.nextLine();
     }
 
-    public String pideRuta(){
-        System.out.println("Introuce la ruta");
-        return this.sc.nextLine();
-    }
+
 
 }
