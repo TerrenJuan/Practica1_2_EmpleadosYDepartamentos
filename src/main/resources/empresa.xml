@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<empresa>
+    <departamentos/>
+    <empleados>
+        <antiguedad>14/02/2000</antiguedad>
+        <nombre>pedro</nombre>
+        <sueldo>1000</sueldo>
+        <año>1999</año>
+    </empleados>
+    <empleados>
+        <antiguedad>2024/12/12</antiguedad>
+        <nombre>Juan Álvarez</nombre>
+        <sueldo>25000</sueldo>
+        <año>0</año>
+    </empleados>
+    <empleados>
+        <antiguedad>2024/12/12</antiguedad>
+        <nombre>Sara Gracia</nombre>
+        <sueldo>28000</sueldo>
+        <año>0</año>
+    </empleados>
+    <empleados>
+        <antiguedad>2024/12/12</antiguedad>
+        <nombre>Juan Álvarez</nombre>
+        <sueldo>35000</sueldo>
+        <año>0</año>
+    </empleados>
+</empresa>

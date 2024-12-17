@@ -9,7 +9,6 @@ import java.util.List;
 
 @XmlRootElement(name = "departamentos")
 @XmlAccessorType(XmlAccessType.NONE)
-
 public class Departamentos {
 
         private List<Departamento> departamentos;

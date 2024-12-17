@@ -13,26 +13,29 @@ import java.util.Date;
 import java.util.List;
 
 public class LeerEmpleadoJSON {
+    private String mensaje= "";
 
-    private static void leerNuevosEmpleadosJSON(List<Empleado> empleados) {
-        //cogemos la fecha actual en una variable
-        SimpleDateFormat formateo= new SimpleDateFormat("yyyyMMdd'_'HH-mm-ss");
-        Date fecha =new Date(System.currentTimeMillis());
-        String fechaBuena = formateo.format(fecha);
+    public String leerNuevosEmpleadosJSON(List<Empleado> empleados) {
+
+        // Cogemos la fecha actual en una variable
+        SimpleDateFormat formateo = new SimpleDateFormat("yyyy/MM/dd");
+        Date fecha = new Date(System.currentTimeMillis());
+        String fechaFormateada = formateo.format(fecha);
         Path p = Path.of("src/main/resources/nuevosEmpleados.json");
-        //varaible para almacenar el contenido del fichero
+
+        // Varaible para almacenar el contenido del fichero
         Empleado[] empleadoJson;
-        //leemos el contenido del Json, que es un texto
+        // Leemos el contenido del Json, que es un texto
         String txtJson;
-        //leempos el contenido del archivo de texto
+        // Leemos el contenido del archivo de texto
         try{
             if(CheckFiles.ficheroReadable(p)){
                 txtJson = Files.readString(p);
-                //creo el Gson que transforma de texto a objeto
+                // Creamos el Gson que transforma de texto a objeto
                 Gson gson = new Gson();
                 empleadoJson = gson.fromJson(txtJson,Empleado[].class);
                 for(Empleado empleado: empleadoJson){
-                    empleado.setAntiguedad(fechaBuena);
+                    empleado.setAntiguedad(fechaFormateada);
                     empleados.add(empleado);
                 }
                 Path p2 = Path.of("src/main/resources/empleados.csv");
@@ -47,18 +50,20 @@ public class LeerEmpleadoJSON {
                             //Escribimos la linea en el csv y saltamos la linea
                             writer.write(linea + "\n");
                         }
-                        System.out.println("Escritura del empleado correcta");
+                        mensaje = "Escritura del empleado correcta desde el archivo json";
                     }catch(IOException e){
-                        System.out.println("Error en la escritura del csv");
+                        mensaje = "Error en la escritura del csv";
                     }
                 }else{
-                    System.out.println("No es posible escribir en este fichero");
+                    mensaje = "No es posible escribir en este fichero";
                 }
             }else{
-                System.out.println("El fichero no se puede leer");
+                mensaje = "El fichero no se puede leer";
             }
         }catch(IOException ex){
-            System.out.println("El fichero no se ha podido crear");
+            mensaje = "El fichero no se ha podido crear";
         }
+        return mensaje ;
     }
+
 }

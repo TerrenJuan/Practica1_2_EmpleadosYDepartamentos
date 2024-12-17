@@ -1,5 +1,11 @@
 package com.iessanalberto.JTT.libs;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -85,5 +91,30 @@ public class Leer {
     }
     static public void mostrarEnPantalla(String mensaje) {
         System.out.println(mensaje);
+    }
+
+    static public Date pedirDate(final String texto) {
+        BufferedReader dataIn = new BufferedReader(new InputStreamReader(System.in));
+        Date dato = null;
+        boolean error = true;
+        String datoT = "";
+        while (error) {
+            try {
+                mostrarEnPantalla(texto);
+                datoT = dataIn.readLine();
+                dato = new SimpleDateFormat("dd/MM/yyyy").parse(datoT);
+                error = false;
+            } catch (IOException e) {
+                mostrarEnPantalla("Vuelve a introducir el dato, por favor. ");
+                error = true;
+            } catch (NumberFormatException e) {
+                mostrarEnPantalla("El dato introducido no es una fecha válida: yyyy/MM/dd");
+                error = true;
+            } catch (ParseException e) {
+                mostrarEnPantalla("El dato introducido no es una fecha válida: yyyy/MM/dd");
+                error = true;
+            }
+        }
+        return dato;
     }
 }

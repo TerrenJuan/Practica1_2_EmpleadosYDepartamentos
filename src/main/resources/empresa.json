@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "pedro",
+    "sueldo": 1000,
+    "year": 1999,
+    "antiguedadEmpleado": "14/02/2000",
+    "idDep": 0
+  },
+  {
+    "nombre": "Juan Álvarez",
+    "sueldo": 25000,
+    "year": 0,
+    "antiguedadEmpleado": "2024/12/12",
+    "idDep": 0
+  },
+  {
+    "nombre": "Sara Gracia",
+    "sueldo": 28000,
+    "year": 0,
+    "antiguedadEmpleado": "2024/12/12",
+    "idDep": 0
+  },
+  {
+    "nombre": "Juan Álvarez",
+    "sueldo": 35000,
+    "year": 0,
+    "antiguedadEmpleado": "2024/12/12",
+    "idDep": 0
+  }
+]{}
